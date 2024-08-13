@@ -1,10 +1,8 @@
 package begin;
 
-import java.util.Scanner;
-
-public class ScannerClass {
+public class Scanner {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        java.util.Scanner input = new java.util.Scanner(System.in);
 
         System.out.print("정수를 입력하세요 : ");
         int i = input.nextInt();
