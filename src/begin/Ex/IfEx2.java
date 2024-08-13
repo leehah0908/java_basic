@@ -25,26 +25,34 @@ public class IfEx2 {
 
         System.out.print("정수를 입력하세요 : ");
         int num2 = input.nextInt();
+        int result = 0;
+        boolean flag = false;
 
         switch (cac) {
             case "+":
-                System.out.println(num1 + " " + cac + " " + num2 + " = " + (num1 + num2));
+                result = num1 + num2;
                 break;
             case "-":
-                System.out.println(num1 + " " + cac + " " + num2 + " = " + (num1 * num2));
+                result = num1 - num2;
                 break;
             case "*":
-                System.out.println(num1 + " " + cac + " " + num2 + " = " + (num1 * num2));
+                result = num1 * num2;
                 break;
             case "/":
                 if (num2 == 0) {
                     System.out.println("0으로 나눌 수 없습니다.");
+                    flag = true;
                     break;
                 }
-                System.out.println(num1 + " " + cac + " " + num2 + " = " + (num1 / num2));
+                result = num1 / num2;
                 break;
             default:
                 System.out.println("연산자를 잘못입력했습니다.");
+                flag = true;
+        }
+
+        if (!flag) {
+            System.out.println(num1 + " " + cac + " " + num2 + " = " + result);
         }
     }
 }
