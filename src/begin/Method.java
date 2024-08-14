@@ -4,18 +4,32 @@ public class Method {
     public static void main(String[] args) {
         System.out.println(calcTotal(100));
 
+        System.out.println("====================");
         System.out.println(calcTotal2(34, 96));
 
+        System.out.println("====================");
         System.out.println(selectRandomFood());
         System.out.println(selectRandomFood());
         System.out.println(selectRandomFood());
 
         // 배열 선언 후 메서드 사용
+        System.out.println("====================");
         int[] arr = {10, 30, 50, 70, 90, 110, 130};
         System.out.println(calAverage(arr));
 
         // 배열 선언없이 가변 파라미터로 매서드 사용
+        System.out.println("====================");
         System.out.println(calAverage2(1,2,3,4,6,8,3,5,8,9,4,3,3,6,9,9,4));
+
+        System.out.println("====================");
+        int[] result = operatorTotal(30,6);
+        for (int i : result) {
+            System.out.println(i);
+        }
+
+        System.out.println("====================");
+        divide(20, 4);
+        divide(20, 0);
     }
 
     public static int calcTotal(int num) {
@@ -63,4 +77,17 @@ public class Method {
         return (double) total / nums.length;
     }
 
+    public static int[] operatorTotal(int num1, int num2) {
+        return new int[] {num1 + num2, num1 - num2, num1 * num2, num1 / num2};
+    }
+
+    public static void divide(int num1, int num2) {
+        if (num2 == 0) {
+            System.out.println("0으로는 나눌 수 없습니다.\n");
+            return;
+        }
+        int result = num1 / num2;
+        System.out.printf("%d / %d = %d\n", num1, num2, result);
+
+    }
 }

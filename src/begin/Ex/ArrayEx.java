@@ -32,9 +32,9 @@ public class ArrayEx {
                 temp[i] = foods[i];
             }
 
-            temp[foods.length] = food;
+            temp[temp.length - 1] = food;
 
-            foods = temp;
+            foods = temp; temp = null;
         }
 
         System.out.println(Arrays.toString(foods));

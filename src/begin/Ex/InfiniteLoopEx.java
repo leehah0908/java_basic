@@ -16,6 +16,8 @@ public class InfiniteLoopEx {
         System.out.println("*** 연산 퀴즈 ***");
         System.out.println("# 종료하시려면 0을 입력해 주세요.");
 
+        int jung = 0;
+        int oh = 0;
         while (true) {
             int num1 = (int) ((Math.random() * 100) + 1);
             int num2 = (int) ((Math.random() * 100) + 1);
@@ -52,13 +54,16 @@ public class InfiniteLoopEx {
             int correct = input.nextInt();
 
             if (correct == 0) {
+                System.out.printf("정답 횟수 : %d, 오답 횟수 : %d\n", jung, oh);
                 System.out.println("프로그램을 종료합니다.");
                 break;
             } else {
                 if (result == correct) {
                     System.out.println("정답입니다.");
+                    jung++;
                 } else if (result != correct) {
                     System.out.println("틀렸습니다.");
+                    oh++;
                 }
             }
         }
