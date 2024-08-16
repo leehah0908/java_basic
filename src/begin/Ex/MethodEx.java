@@ -1,8 +1,6 @@
 package begin.Ex;
 
 import java.util.Arrays;
-import java.util.SimpleTimeZone;
-import java.util.logging.Level;
 
 public class MethodEx {
     public static String[] foods = {"치킨", "파스타", "피자"};
@@ -22,7 +20,22 @@ public class MethodEx {
         push("소고기");
         printFoods();
 
-        pop("피자");
+        pop();
+        printFoods();
+
+        insert(2, "족발");
+        printFoods();
+
+        modify(1, "치치킨");
+        printFoods();
+
+        remove("족발");
+        printFoods();
+
+        clear();
+        printFoods();
+
+        push("짜장면");
         printFoods();
     }
 
@@ -52,13 +65,8 @@ public class MethodEx {
         temp = null;
     }
 
-    public static void pop(String newFood) {
-        int isIndex = indexOf(newFood);
-        if (isIndex == -1) {
-            return;
-        } else {
-            foods = copyArray(-1);
-        }
+    public static void pop() {
+        foods = copyArray(-1);
     }
 
     private static String[] makeNewArray(int size) {
@@ -86,4 +94,56 @@ public class MethodEx {
 
         return temp;
     }
+
+    static void insert(int targetIndex, String newFoodName) {
+        if (isOutOfBounds(targetIndex)) return;
+
+        String[] emptyArray = copyArray(1);
+
+        for (int i = foods.length; i > targetIndex; i--) {
+            emptyArray[i] = emptyArray[i - 1];
+        }
+
+        emptyArray[targetIndex] = newFoodName;
+
+        foods = emptyArray;
+        emptyArray = null;
+    }
+
+    static void modify(int targetIndex, String newFoodName) {
+        if (isOutOfBounds(targetIndex)) return;
+
+        foods[targetIndex] = newFoodName;
+    }
+
+    public static boolean isOutOfBounds(int targetIndex) {
+        return targetIndex > foods.length || targetIndex < 0;
+
+        // 좀 더 복잡한 코드
+//        if (targetIndex > foods.length || targetIndex < 0) {
+//            return true;
+//        }
+//        return false;
+    }
+
+    public static void remove(String deleteTarget) {
+        int index = indexOf(deleteTarget);
+        if (index == -1) {
+            return;
+        }
+
+        for (int i = index; i < foods.length - 1; i++) {
+            foods[i] = foods[i + 1];
+        }
+
+        String[] temp = copyArray(-1);
+        foods = temp;
+        temp = null;
+    }
+
+    public static void clear() {
+        foods = new String[]{};
+    }
+
+
 }
