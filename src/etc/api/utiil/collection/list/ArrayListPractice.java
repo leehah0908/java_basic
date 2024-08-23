@@ -77,7 +77,7 @@ public class ArrayListPractice {
 
         System.out.println("===============================");
         // 리스트 생성과 동시에 객체 초기화
-        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8); // -> 불변 리스트 -> 삽입, 삭제 안됨, 수정은 됨
         System.out.println(list);
 
         // 컬렉션 객체들은 Collections의 기능을 사용할 수 있습니다.
@@ -104,7 +104,20 @@ public class ArrayListPractice {
         System.out.println(score);
 
         // 내림차순 정렬
+        // Collections.reverse(score); -> 정렬은 아니고, 그냥 뒤집는거기 때문에 오름찬순 정렬 후 실행해야 내림차순이 됨!
         Collections.sort(score, Collections.reverseOrder());
+        System.out.println(score);
+
+        // swap(리스트, i, j): 두 요소의 위치를 교체
+        Collections.swap(score, 3, 7);
+        System.out.println(score);
+
+        // shuffle(리스트): 리스트내의 요소들 무작위로 섞기
+        Collections.shuffle(score);
+        System.out.println(score);
+
+        // fill(리스트, 값): 원하는 값으로 전부 초기화
+        Collections.fill(score, 100);
         System.out.println(score);
 
 
