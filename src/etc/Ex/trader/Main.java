@@ -2,7 +2,7 @@ package etc.Ex.trader;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -31,10 +31,16 @@ public class Main {
 
         System.out.println("\n==========================================");
         // 연습 2: 거래자가 근무하는 모든 도시이름을 중복 없이 나열하시오.
+//        transactions.stream()
+//                .map(t -> t.getTrader().getCity())
+//                .distinct()
+//                .toList()
+//                .forEach(System.out::println);
+
+        // 같은 동작을 하는 set 코드
         transactions.stream()
                 .map(t -> t.getTrader().getCity())
-                .distinct()
-                .toList()
+                .collect(Collectors.toSet())
                 .forEach(System.out::println);
 
         System.out.println("\n==========================================");
@@ -68,10 +74,11 @@ public class Main {
 
         System.out.println("\n==========================================");
         // 연습 7: 모든 거래에서 최고거래액은 얼마인가?
-        Transaction max = transactions.stream()
-                .max(Comparator.comparing(Transaction::getValue))
-                .get();
-        System.out.println(max.getValue());
+        int max = transactions.stream()
+                .mapToInt(Transaction::getValue)
+                .max()
+                .getAsInt();
+        System.out.println(max);
 
         System.out.println("\n==========================================");
         // 연습 8. 가장 작은 거래액을 가진 거래정보 탐색
@@ -90,12 +97,21 @@ public class Main {
         System.out.println("\n==========================================");
         // 연습 10. 모든 거래에서 가장 작은 거래액보다 큰 거래액을 가진 거래의 평균을 계산하시오.
         // 출력값: 752.0
-        OptionalDouble avg = transactions.stream()
+        double avg = transactions.stream()
                 .filter(t -> t.getValue() > min.getValue()) // -> 값이 없을 가능성이 있다!
                 .mapToInt(Transaction::getValue)
-                .average();
+                .average()
+                .getAsDouble();
         System.out.println(avg);
-        // int는 값이 없으면 0을 리턴하지만 double은 값이 없으면 오류가 나기 때문에 OptionalDouble로 받아줘야 함!
 
+        System.out.println("\n==========================================");
+        // 연습 11. Cambridge에서 거래하는 모든 거래자의 거래 정보들을 연도별로 그룹화하여 출력하세요.
+        transactions.stream()
+                .filter(t -> t.getTrader().getCity().equals("Cambridge"))
+                .collect(Collectors.groupingBy(Transaction::getYear))
+                .forEach((key, value) -> {
+                    System.out.println(key);
+                    value.forEach(System.out::println);
+                });
     }
 }

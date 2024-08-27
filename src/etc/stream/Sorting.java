@@ -17,7 +17,8 @@ public class Sorting {
         System.out.println("===================================================");
         // 모든 메뉴들을 이름으로 내림차순 정령
         menuList.stream()
-                .sorted(Comparator.comparing(Dish::getName).reversed())
+//                .sorted(Comparator.comparing((Dish d)-> d.getCalories()).reversed()) // -> 일반 람다식으로 사용할거면 Dish라고 명시를 해줘야 reverse()가 오류가 안남 (굳이?)
+                .sorted(Comparator.comparing(Dish::getName).reversed())                // -> 참조식으로 고친 후에 reverse()를 사용해야 오류가 안남!
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
