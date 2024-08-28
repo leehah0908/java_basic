@@ -1,4 +1,4 @@
-package oop.poly.Player;
+package oop.poly.player;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,5 +10,9 @@ public class Main {
         Hunter h2 = new Hunter("사냥꾼2", "고양이");
 
         m1.blizzard(w1, w2, m2, h1, h2);
+
+        System.out.println("==========================================");
+        h1.magicArrow(m1);
+        h1.magicArrow(w1);
     }
 }

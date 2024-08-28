@@ -50,5 +50,22 @@ public class Main {
         newPorsche.run();
         newTesla.run();
 
+        System.out.println("====================================");
+        newTesla.run();
+//        newPorsche.activeAutopilot(); -> Car 타입으로 리턴이 됐기 때문에 오류 발생
+        Tesla t5 = (Tesla) newTesla;
+        t5.activeAuthpilot();
+
+        // 아니면 애초에 아래와 같이 바로 다운캐스팅 하면됨
+//        Car newTesla2 = kim.buyCar("테슬라");
+        Tesla newTesla2 = (Tesla) kim.buyCar("테슬라");
+
+        System.out.println("====================================");
+        CarShop shop = new CarShop();
+        shop.carPrice(s2);
+        shop.carPrice(t2);
+
+
+
     }
 }

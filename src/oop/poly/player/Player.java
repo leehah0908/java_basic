@@ -1,4 +1,4 @@
-package oop.poly.Player;
+package oop.poly.player;
 
 public class Player {
     String nickName;
