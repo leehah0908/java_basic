@@ -38,11 +38,13 @@ public class Main {
         myAccount.withdraw(20000);
         System.out.println("출금 후 잔액: " + myAccount.getBalance()); // 40000 출력
 
+        System.out.println("===============================");
         // PasswordManager 클래스 테스트
         PasswordManager pm = new PasswordManager("oldPassword123");
         boolean isChanged = pm.changePassword("oldPassword123", "newPassword123");
         System.out.println("Password changed: " + isChanged); // true
 
+        System.out.println("===============================");
         // Student 클래스 테스트
         Student student = new Student();
         student.setName("박영희");
@@ -52,6 +54,7 @@ public class Main {
         System.out.println("학번: " + student.getStudentId());
         System.out.println("전공: " + student.getDepartment());
 
+        System.out.println("===============================");
         // Car 클래스 테스트
         Car myCar = new Car();
         myCar.setBrand("현대");
@@ -61,6 +64,7 @@ public class Main {
         System.out.println("Car Model: " + myCar.getModel());
         System.out.println("Car Year: " + myCar.getYear());
 
+        System.out.println("===============================");
         // Product 클래스 테스트
         Product product = new Product();
         product.setName("Laptop");

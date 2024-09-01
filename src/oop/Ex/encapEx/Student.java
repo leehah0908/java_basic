@@ -7,7 +7,6 @@ public class Student {
         - 모든 정보 필드는 private으로 선언하고, 각 필드의 getter와 setter 메소드를 public으로 만드세요.
         - setter 메소드에서는 유효하지 않은 입력(예: null 값 또는 빈 문자열)에 대한 검증 로직을 포함하세요.
     */
-
     private String name;
     private String department;
     private String studentId;

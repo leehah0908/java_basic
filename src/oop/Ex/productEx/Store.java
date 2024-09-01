@@ -12,11 +12,11 @@ public class Store {
 
     private static int totalSales;
 
-    static void addSale(int amount) {
+    public static void addSale(int amount) {
         totalSales += amount;
     }
 
-    static int getTotalSales() {
+    public static int getTotalSales() {
         return totalSales;
     }
 }

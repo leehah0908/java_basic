@@ -15,15 +15,15 @@ public class ElectronicProduct {
 
     String productName;
     String manufacturer;
-    int price;
+    double price;
 
-    public ElectronicProduct(String productName, int price, String manufacturer) {
+    public ElectronicProduct(String productName, double price, String manufacturer) {
         this.productName = productName;
         this.manufacturer = manufacturer;
         this.price = price;
     }
 
-    void displayInfo() {
+    public void displayInfo() {
         System.out.println("제품명: " + this.productName);
         System.out.println("제조사: " + this.manufacturer);
         System.out.println("가격: " + this.price);

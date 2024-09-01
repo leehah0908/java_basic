@@ -13,8 +13,8 @@ public class Product {
             - `sellProduct()`: 제품을 판매하고 `Store`의 총 판매액을 업데이트합니다.
      */
 
-    String productName;
-    int price;
+    private String productName;
+    private int price;
 
     public Product(String productName, int price) {
         this.productName = productName;

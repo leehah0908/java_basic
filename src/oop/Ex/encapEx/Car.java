@@ -1,5 +1,7 @@
 package oop.Ex.encapEx;
 
+import java.time.LocalDate;
+
 public class Car {
     /*
     4. 자동차 클래스
@@ -41,7 +43,7 @@ public class Car {
     }
 
     public void setYear(int year) {
-        if (year > 2024) {
+        if (year < 1900 || year > LocalDate.now().getYear()) {
             System.out.println("잘못된 입력입니다.");
             return;
         }

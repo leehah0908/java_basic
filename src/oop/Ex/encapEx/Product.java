@@ -12,15 +12,13 @@ public class Product {
     private int price;
     private int stock;
 
-
     public void reduceStock(int reduceAmount) {
-        if (stock < reduceAmount) {
-            System.out.println("재고가 부족합니다.");
+        if (reduceAmount < 0 || stock < reduceAmount) {
+            System.out.println("잘못된 입력입니다..");
             return;
         }
         this.stock -= reduceAmount;
     }
-
 
     public String getName() {
         return name;

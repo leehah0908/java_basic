@@ -10,11 +10,10 @@ public class WeatherConstants {
         - 이 클래스는 상수만을 포함하며, 인스턴스화되지 않습니다. 즉, 객체 생성을 못하게 막아주세요.
      */
 
-    static final double MAX_TEMPERATURE_ALERT = 40.0;
-    static final double MIN_TEMPERATURE_ALERT = -10.0;
-    static final double PRECIPITATION_ALERT = 50.0;
+    public static final double MAX_TEMPERATURE_ALERT = 40.0;
+    public static final double MIN_TEMPERATURE_ALERT = -10.0;
+    public static final double PRECIPITATION_ALERT = 50.0;
 
     private WeatherConstants() {
     }
-
 }

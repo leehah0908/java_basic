@@ -14,15 +14,13 @@ public class Television extends ElectronicProduct{
     int screenSize;
 
     @Override
-    void displayInfo() {
+    public void displayInfo() {
         super.displayInfo();
         System.out.println("화면 크기: " + this.screenSize + " inches");
     }
 
-    public Television(String productName, int price, String manufacturer, int screenSize) {
+    public Television(String productName, double price, String manufacturer, int screenSize) {
         super(productName, price, manufacturer);
         this.screenSize = screenSize;
-
-
     }
 }
